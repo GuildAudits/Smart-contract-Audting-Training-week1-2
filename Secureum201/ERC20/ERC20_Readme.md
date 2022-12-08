@@ -1,4 +1,4 @@
-## ERC20
+# ERC20
 
 ### The ERC20 standard defines a set of functions to be implemented by all ERC20 tokens so as to allow integration with other contracts, wallets, or marketplaces.
 
@@ -38,3 +38,67 @@ An associative array defined by the expression `mapping(address => uint256)` has
 Each owner account's token balance will be kept in the first mapping object, called balances.
 
 The second mapping object `mapping(address => mapping (address => uint256)) allowed;`, allowed, will list all of the accounts authorised to withdraw money from a specific account along with the maximum withdrawal amount permitted for each account.
+
+## Deciding how many ICO tokens to issue
+
+
+![Screenshot (69)](https://user-images.githubusercontent.com/82324643/206470071-19ec1176-5e2b-4866-a98b-3bb541ef22b2.png)
+
+Assign all of the tokens initially to the "contract owner," or the account that deployed the smart contract, by setting the total number of tokens at contract creation time.
+
+A constructor is a special function automatically called by Ethereum right after the contract is deployed. It is typically used to initialize the token’s state using parameters passed by the contract’s deploying account.
+
+The constructor of a contract can only be accessed by the deploying account. This function allows tokens that are available to the "contract owner" account when the contract is deployed.
+
+![Screenshot (70)](https://user-images.githubusercontent.com/82324643/206473286-b5a9adb2-199d-4775-a8e7-7a4d1b2b3822.png)
+
+Tokens that are fully compliant with the ERC-20 structure and have a unique feature that distinguishes them from other tokens are known as mintable ERC-20 tokens. With mintable tokens, new tokens can always be produced and added to the existing supply.
+
+
+
+Standard ERC-20 tokens must be included in a fixed supply because they lack the mintable feature.
+
+## Tokens Can Be Transferred to Another Account
+
+The transfer function, as its name implies, is used to transfer numTokens worth of tokens from the balance of the owner to that of another user, or receiver. The person executing the function, or msg.sender, is the owner who is transferring the tokens, suggesting that only the token owner can do so.
+
+A predicate must be asserted in the manner of solidity. In this instance, the transferring account has a balance that is sufficient to carry out the transfer. The transaction is immediately rolled back and no changes are recorded in the blockchain if a require statement fails.
+
+
+![Screenshot (71)](https://user-images.githubusercontent.com/82324643/206473330-1603e84c-903b-4b2c-a729-d466a40053ef.png)
+
+## Accept delegates' request to withdraw tokens
+
+
+
+The function of approve is to permit an owner, i.e., msg.sender, to give the go-ahead for a delegate account—possibly the marketplace—to withdraw tokens from and transfer them to other accounts.
+
+This process ends with the firing of an Approval event.
+
+![Screenshot (72)](https://user-images.githubusercontent.com/82324643/206474549-1bab0b09-ccb5-44cf-be09-b969bbf71256.png)
+
+
+## ERC20Burnable
+
+ERC20 extension permits token holders to destroy both their own tokens and tokens they have an allowance for in a way that can be verified off-chain (via event analysis).
+
+
+![Screenshot (73)](https://user-images.githubusercontent.com/82324643/206475501-6bdea69a-9175-4a85-9995-0e2e2024995d.png)
+
+      burnFrom(address account, uint256 amount)
+
+Destroys amount tokens from account, deducting from the caller’s allowance.
+
+Requirements: The caller must have allowance for accounts's tokens of at least amount.
+
+## ERC20Pausable
+
+ERC20 token with token transfers, minting, and burning that can be paused.
+Useful in situations like delaying trades until after a trial period or having a backup switch to stop all token transfers in the event of a serious bug.
+
+## ERC20Vtes
+
+The voting power of each account is recorded historically by this extension (checkpoints). Voting authority may be transferred either directly by calling the delegate function or indirectly by providing a signature for use with the delegateBySig function. Through the public accessors getVotes and getPastVotes, voting power can be accessed.
+By default, voting power is not taken into account by token balance. This lowers the cost of transfers. Having to delegate to oneself in order to activate checkpoints and track one's voting power is a drawback.
+
+
