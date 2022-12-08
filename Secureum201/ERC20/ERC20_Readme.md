@@ -101,4 +101,39 @@ Useful in situations like delaying trades until after a trial period or having a
 The voting power of each account is recorded historically by this extension (checkpoints). Voting authority may be transferred either directly by calling the delegate function or indirectly by providing a signature for use with the delegateBySig function. Through the public accessors getVotes and getPastVotes, voting power can be accessed.
 By default, voting power is not taken into account by token balance. This lowers the cost of transfers. Having to delegate to oneself in order to activate checkpoints and track one's voting power is a drawback.
 
+| **Function**  | **Return** | **Discription**|
+| --------------- | --------------- |------------|
+| delegate(address delegatee)  |  | Delegate votes from the sender to delegatee|
+| getPastTotalSupply(uint256 blockNumber)| uint256 | Note that this amount represents the total of all balances. It is NOT the total of all the delegated votes, though!(blockNumber must have been already mined)|
+| _ afterTokenTransfer(address from, address to, uint256 amount) |  | Move voting power when tokens are transferred.|
+
+
+
+## ERC20Snapshot
+
+An ERC20 token is enhanced by this contract with a snapshot mechanism. The balances and total supply at the time the snapshot is created are saved for access later.
+
+This can be used to securely develop token-based mechanisms like weighted voting or trustless dividends. By using the same balance from multiple accounts, a "double spend" attack can be carried out in naive implementations. Those attacks are no longer relevant when dividends or voting power are computed using snapshots. Additionally, it can be used to develop a productive ERC20 forking mechanism. After function execution it's return snapshotId and by using this snapshotId anyone can check status of tokens, votes,...at that block.
+
+
+
+
+![Screenshot (74)](https://user-images.githubusercontent.com/82324643/206479920-c0985745-47de-4081-8e3c-5ecc54764b95.png)
+
+
+## Visualize ERC20 SmartContract
+
+
+
+
+
+
+
+
+
+
+![ERC20](https://user-images.githubusercontent.com/82324643/206477609-d1b7ae88-f99b-4f4e-9ed4-532a027b2897.png)
+
+
+
 
