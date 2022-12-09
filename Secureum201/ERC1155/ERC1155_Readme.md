@@ -39,3 +39,12 @@ Extension of ERC1155 that allows token holders to destroy both their own tokens 
 ## ERC1155Supply
 
 Useful for scenarios where Fungible and Non-fungible tokens have to be clearly identified. Note: While a totalSupply of 1 might mean the corresponding is an NFT, there is no guarantees that no other token with the same id are not going to be minted.
+
+
+
+
+
+
+## visualize ERC1155 
+
+![Screenshot (82)](https://user-images.githubusercontent.com/82324643/206668856-85bf4d22-9b21-49a2-926d-b61e1f0c1a15.png)
