@@ -96,7 +96,7 @@ Requirements: The caller must have allowance for accounts's tokens of at least a
 ERC20 token with token transfers, minting, and burning that can be paused.
 Useful in situations like delaying trades until after a trial period or having a backup switch to stop all token transfers in the event of a serious bug.
 
-## ERC20Vtes
+## ERC20Votes
 
 The voting power of each account is recorded historically by this extension (checkpoints). Voting authority may be transferred either directly by calling the delegate function or indirectly by providing a signature for use with the delegateBySig function. Through the public accessors getVotes and getPastVotes, voting power can be accessed.
 By default, voting power is not taken into account by token balance. This lowers the cost of transfers. Having to delegate to oneself in order to activate checkpoints and track one's voting power is a drawback.
