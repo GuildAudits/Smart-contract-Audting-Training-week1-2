@@ -324,4 +324,14 @@ Overall, consensus is an essential aspect of the Ethereum platform, as it allows
 ---
 
 ## _Secureum 201 Review_
-### This is a comprehensive review from chapter 1 to chapter 5
+### This is a comprehensive review on 5 topics from Secureum 201
+
+1. The topic of reentrancy vulnerabilities in Solidity is discussed in detail in the article. The author highlights the importance of using the "require" statement to prevent reentrancy attacks and provides examples of how to implement this in code.
+
+2. The article also discusses the use of the "view" and "pure" keywords in Solidity, and how they can help improve the security and efficiency of smart contracts. The author provides examples of how to use these keywords in practice.
+
+3. Another topic covered in the article is the use of the "selfdestruct" keyword in Solidity. The author explains how this keyword can be used to securely destroy a contract and transfer its balance to another address.
+
+4. The article also touches on the topic of creating and using libraries in Solidity. The author provides an example of how to create a library and use it in a contract, as well as the benefits of using libraries in terms of code organization and reusability.
+
+5. Finally, the article discusses the use of the "return" keyword in Solidity, and how it can be used to return multiple values from a function. The author provides examples of how to use the "return" keyword in practice, and highlights the importance of properly handling return values in order to avoid potential errors.
