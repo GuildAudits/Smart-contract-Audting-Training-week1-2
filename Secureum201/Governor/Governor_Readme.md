@@ -45,7 +45,7 @@ The proposal is deemed successful and can move on with execution if quorum was r
 Queuing is the first stage of execution if a timelock was established. As contrast to only requiring the proposal id, the queue and execute functions both want the full set of proposal parameters. This is essential since, in an effort to conserve gas, this data is not kept on a chain. Keep in mind that these parameters are always present in the events that the contract emits. The description is the sole parameter that is not supplied in its whole because it is only required in its hashed form to determine the proposal id.
 
 
------------------
+    hashProposal(address[] targets, uint256[] values, bytes[] calldatas, bytes32 descriptionHash) → uint256
 
 
 
@@ -63,4 +63,4 @@ Queuing is the first stage of execution if a timelock was established. As contra
 
 The targets array, values array, calldatas array, and descriptionHash are hashed together to create the proposal id (bytes32 which itself is the keccak256 hash of the description string). The proposal data included in the ProposalCreated event can be used to generate this proposal id. Even before the proposal is presented, it can be calculated.
 
-Keep in mind that the computation of the proposal id does not include the chainId or the governor address. As a result, if the same request is submitted to numerous governors across various networks with the same action and description, it will have the same id. This also implies that the proposer will have to alter the description in order to perform the same operation twice (on the same governor).
+
