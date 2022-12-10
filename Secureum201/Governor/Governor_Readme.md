@@ -30,7 +30,9 @@ Last but not least, there is the Admin role, which has the power to grant and re
 
 ## Create a Proposal
 
-
+ This proposal will consist of a single action where the target is the ERC20 token, calldata is the encoded 
+ function call `transfer(< team wallet >, < grant amount >)`, and with 0 ETH attached.
+  
 -----------------
 
 
