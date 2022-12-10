@@ -9,8 +9,10 @@ Using Solidity inheritance, OpenZeppelin Contracts should create a modular syste
 
 
 
+## [GovernorToken](https://github.com/AnandK-2024/Smart-contract-Audting-Training-/blob/Anand_Developer/Secureum201/Governor/governorToken.sol)
 
-
+The voting power of each account in our governance setup will be determined by an ERC20 token. 
+The ERC20Votes extension must be implemented by the token. In order to prevent repeated voting, this addition will maintain track of prior balances. This will allow voting power to be derived from earlier snapshots rather than the current balance.
 
 
 
