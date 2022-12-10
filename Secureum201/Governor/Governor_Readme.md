@@ -33,6 +33,18 @@ Last but not least, there is the Admin role, which has the power to grant and re
  This proposal will consist of a single action where the target is the ERC20 token, calldata is the encoded 
  function call `transfer(< team wallet >, < grant amount >)`, and with 0 ETH attached.
   
+  
+## Cast a Vote
+
+Delegates can vote on a proposal once it is open for discussion. It should be noted that delegates hold the authority to vote; if a token holder wants to participate, they can nominate a dependable person to act as their delegate or they can exercise their right to vote and become a delegate themselves.
+
+## Execute the Proposal
+
+The proposal is deemed successful and can move on with execution if quorum was reached (enough voting power participated) and the majority voted in favour. The "Administration Panel" portion of a project in Tally also has a place for this.
+
+Queuing is the first stage of execution if a timelock was established. As contrast to only requiring the proposal id, the queue and execute functions both want the full set of proposal parameters. This is essential since, in an effort to conserve gas, this data is not kept on a chain. Keep in mind that these parameters are always present in the events that the contract emits. The description is the sole parameter that is not supplied in its whole because it is only required in its hashed form to determine the proposal id.
+
+
 -----------------
 
 
