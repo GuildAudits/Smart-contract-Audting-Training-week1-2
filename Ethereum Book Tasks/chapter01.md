@@ -18,7 +18,7 @@ A set of consensus rules, governing what constitutes a transaction and what make
 
 A state machine that processes transactions according to the consensus rules
 
-A chain of cryptographically secured blocks that acts as a journal of all the verified and accepted state transitions
+A  chain of cryptographically secured blocks that acts as a journal of all the verified and accepted state transitions
 
 A consensus algorithm that decentralizes control over the blockchain, by forcing participants to cooperate in the enforcement of the consensus rules
 
