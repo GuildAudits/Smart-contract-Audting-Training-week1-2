@@ -218,6 +218,9 @@ Even if the tokens can be physically moved, it seems to be challenging to identi
 
 ## Chapter 11: Oracles
 
+Oracles are dependable data feeds that deliver information to the Smart Contract, reducing the workload of the latter by eliminating the need for Smart Contracts to directly access data outside of their network. Oracles are typically provided by outside sources with permission from the businesses that use them.
+Oracles are a critical advancement in the use of Smart Contracts in practise. Reliable Oracles are necessary for Smart Contracts that use real-world data.
+
 ## Chapter 12: Decentralized Applications (DApps)
 
 One of the most exciting terms now used in the blockchain industry is "DApps" (decentralised applications). Decentralized apps and app are combined to form the term DApp. DApps are essentially tools, applications, or programmes that run on the decentralised Ethereum Blockchain.
