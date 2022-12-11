@@ -251,7 +251,7 @@ Some examples of EVM opcodes include:
 - ADD: This opcode is used to perform arithmetic operations, such as addition.
 - JUMP: This opcode is used to jump to a specific location in the contract code.
 
-# Chapter 13: Consensus
+# Chapter 14: Consensus
 Blockchain consensus is the process by which a decentralized network of nodes reaches an agreement on the current state of the blockchain. This is necessary to maintain the integrity of the blockchain and ensure that all nodes are in agreement on the current state of the ledger.
 
 Ethereum consensus used a proof-of-work algorithm called ethash to achieve consensus. In this algorithm, nodes compete to solve complex mathematical puzzles in order to earn the right to add a new block to the blockchain.
