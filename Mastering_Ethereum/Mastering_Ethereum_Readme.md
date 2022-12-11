@@ -70,11 +70,65 @@ The main function of MyEtherWallet is to function as a web-based wallet in any b
 
 ## Chapter 6: Transactions
 
+In Ethereum, the state may be changed by transactions, and the state keeps account of interactions. This makes Ethereum a transaction-based state machine. Here, we take a high-level look at a transaction's components and explain how the majority of the hex numbers that are nonsense are generated.
+
+An Ethereum account is associated with each address and each have the following attributes.
+
+`nonce` the count of the number of outgoing transactions, starting with 0
+
+`balance` the amount of ether in the account
+
+`storageRoot` the hash associated with the storage of the account
+
+`codeHash` the hash of the code governing the account, if this is empty then the account is a normal account that can be accessed with its private key else
+
+`gasPrice` the price to determine the amount of ether the transaction will cost
+
+`gasLimit` the maximum gas that is allowed to be spent to process the transaction
+
+`to` the account the transaction is sent to, if empty, the transaction will create a contract
+
+`value` the amount of ether to send
+
+`data` could be an arbitrary message or function call to a contract or code to create a contract
+
+
 ## Chapter 7: Smart Contracts and Solidity
+
+In the 1990s, cryptographer Nick Szabo coined the term "smart contracts". In the context of Ethereum, the term is actually a bit of a misnomer. Smart contracts are neither smart nor legal contracts, but the term has stuck in the Etheritec community. Ethereum Virtual Machine as part of the Ethereum network protocol—i.e., on the decentralized Ethereum world computer.
+
+
+### Solidity
+A procedural (imperative) programing language with a syntax almost like JavaScript, C++, or Java. The foremost popular and regularly used language for Ethereum smart contracts.
+
+### Vyper
+A more recently developed language, almost like Serpent and again with Python-like syntax. Intended to urge closer to a pure-functional Python-like language than Serpent, but to not replace Serpent.
+
+### Bamboo
+An afresh developed language, influenced by Erlang, with explicit state transitions and without iterative flows (loops). Intended to scale back side effects and increase audibility. Very new and yet to be widely adopted.
+
+
+### Serpent
+A procedural (imperative) programing language with a syntax almost like Python. Also can be wont to write functional (declarative) code, though it’s not entirely freed from side effects.
 
 ## Chapter 8: Smart Contracts and Vyper
 
+The Ethereum Virtual Machine is the objective of the contract-oriented, pythonic programming language called Vyper (EVM).
+It was created with the express purpose of resolving Solidity's security vulnerabilities. You might have gathered from the definition that python has a big effect on it. Contrary to Solidity, Vyper has done away with some Object-Oriented principles including Inheritance, often known as contract-oriented or transactional programming. Making contracts more safe, auditable, and less prone to mistakes was the major goal. Due to the fact that it is tightly typed, you cannot utilise one data type as another. In dealing with multiple data kinds, this makes sure that nothing goes wrong.
+
+
 ## Chapter 9: Smart Contract Security
+
+
+
+In the Smart Contract Weakness (SWC) registry, they are categorised. The most critical flaw in smart contracts is the SWC registry. The registry provides as the basis for the uniform identification of smart contract vulnerabilities.
+
+### List of known Smart Contract Vulnerabilities
+
+|vulnerability|Effect|
+|------|-----|
+
+
 
 ## Chapter 10: Tokens
 
@@ -162,6 +216,8 @@ A peer-to-peer (P2P) network of peers uses the Inter-Planetary File System (IPFS
 
 Similar to IPFS, Swarm is a content-addressable P2P storage system. Swarm is a piece of the Go-Ethereum toolkit developed by the Ethereum Foundation. Similar to IPFS, it enables you to store files that Swarm nodes distribute and replicate. Any Swarm file can be accessed by using its hash as a reference. Instead of using a centralised web server, Swarm enables you to visit a website from a decentralised P2P network.
 ## Chapter 13: The Ethereum Virtual Machine
+
+The EVM is a virtual machine that executes a unique type of code known as EVM bytecode, similar to how the CPU of our computer executes machine language like x86 64. Even though it is possible to directly construct smart contracts in bytecode, EVM bytecode is quite cumbersome and challenging for programmers to read and comprehend. Instead, the majority of Ethereum developers create their applications in an application-oriented language, which is then translated into bytecode by a compiler.
 
 Solidity provides a variety of high-level language abstractions, but because of these characteristics, it might be challenging to comprehend what is actually happening while my programme runs. I still had a lot of basic questions after reading the Solidity manual.A database engine is the EVM. You must comprehend how data is arranged, kept, and processed in order to comprehend how smart contracts function in any EVM language.
 ability to contribute knowledge. It's still early days for the Ethereum toolchain. Knowing the EVM through and out will let you to create amazing tools for both you and others.
