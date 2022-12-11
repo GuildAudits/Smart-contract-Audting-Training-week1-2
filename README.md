@@ -173,6 +173,7 @@ contract MyToken is ERC20 {
     balanceOf[_to] += _value;
     emit Transfer(msg.sender, _to, _value);
   }
+  ...........
 }
 ``` 
 The security of smart contracts is crucial for the success of decentralized applications on the Ethereum blockchain. By following security best practices, implementing preventative techniques, and regularly conducting audits and testing, developers can ensure the security of their smart contracts and protect against potential vulnerabilities and attacks.
@@ -188,7 +189,7 @@ Token standards are the rules and guidelines that govern how Ethereum Tokens are
 
 The Solidity programming language is commonly used to create Ethereum Tokens. The following is an example of a Solidity code for creating an ERC20 token:
 
-```sol
+```solidity
 pragma solidity ^0.8.0;
 
 contract MyToken {
@@ -212,6 +213,7 @@ contract MyToken {
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;
     }
+ ...........
 }
 ```
 To learn more about the EIPs (Ethereum Improvement Proposals) that govern Ethereum Tokens, you can visit the Ethereum website (https://ethereum.org/en/developers/eips/) and browse the list of EIPs.
@@ -259,3 +261,33 @@ Ethereum consensus used a proof-of-work algorithm called ethash to achieve conse
 Ethereum was also working on and has now implemented a new proof-of-stake algorithm called Casper. In this algorithm, nodes with a certain amount of ether can "stake" their ether to validate transactions and earn rewards.
 
 Examples of blockchain consensus in action include the Bitcoin network, where nodes compete to solve puzzles to earn the right to add new blocks to the blockchain, and the Ethereum network, where nodes use ethash to achieve consensus.
+
+#
+#
+#
+# Review Of Five Topics Of Secureum Solidity 201
+## 1. Library Restrictions In Solidity:
+In Solidity, libraries are a type of contract that cannot be deployed on their own(except it has some external functions), but rather are designed to be used by other contracts. Some restriction of libraries in Solidity is that:
+- they cannot have any state variables
+- they cannot inherit nor be inherited
+- they cannot receive Ether
+- they cannot be destroyed
+- it can only access state variables of the calling contract if they are explicitly supplied (it would have no way to name them, otherwise)
+- Library functions can only be called directly (i.e. without the use of DELEGATECALL) if they do not modify the state (i.e. if they are view or pure functions), because libraries are assumed to be stateless.
+
+This can make it difficult to use libraries for certain types of functionality, but it also helps to ensure that they are lightweight and efficient.
+
+## 2. EVM Storage:
+EVM Storage is a key-value store that maps 256-bit words to 256-bit words and can be accessed using the SSTORE and SLOAD instructions in EVM. It is a persistent storage space where each contract's data can be read, written, modified, and saved. Until they are written to, all storage locations are initialized to zero.
+
+## 3. Storage Layout:
+A contract's storage layout in Solidity refers to how its data is structured in EVM storage. Furthermore, state variables of a contract in solidity are stored in a compact manner, so that multiple values can be stored in the same storage slot or position when applicable, beginning with storage position zero (0) for the first state variable, and so on.
+
+## 4. Reserved Memory:
+Solidity reserves four 32-byte slots, which are used to perform certain actions in memory on the EVM. They are:
+- 0x00 - 0x3f (64 bytes): scratch space for hashing methods(32 bytes * 2)
+- 0x40 - 0x5f (32 bytes): currently allocated memory size (aka. free memory pointer)
+- 0x60 - 0x7f (32 bytes): zero slot (The zero slot is used as initial value for dynamic memory arrays and should never be written to)
+
+## 5. Zero Address Check:
+Address(0), which is 20 bytes of 0s, is treated differently in Solidity contracts because the private key associated with this address is unknown. Ether and tokens sent to this address are unrecoverable, and setting access control roles for this address is also ineffective (no private key to sign transactions). As a result, zero addresses should be used with caution, and checks for user-supplied address parameters should be implemented.
