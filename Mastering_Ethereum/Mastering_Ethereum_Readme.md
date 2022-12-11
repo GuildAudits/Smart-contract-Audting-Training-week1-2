@@ -125,9 +125,43 @@ In the Smart Contract Weakness (SWC) registry, they are categorised. The most cr
 
 ### List of known Smart Contract Vulnerabilities
 
-|vulnerability|Effect|
-|------|-----|
+* Integer overflow and underflow (solved since solidity 0.8)
 
+* Unchecked call return values
+
+* Re-entrancy attacks
+
+* Denial Of Service attacks
+
+* Front Running attacks
+
+* Replay signatures attacks
+
+* Function default visibility
+
+* Floating pragma
+
+* Loop through long arrays
+
+* Wrong inheritance
+
+* Unexpected ether balance
+
+* Access outside array limits
+
+* Delegate calls to untrusted sources
+
+* (Regular) calls to untrusted sources
+
+* Insecure randomness
+
+* Block Timestamp manipulation
+
+* Contracts with zero code
+
+* Uninitialized Storage Pointers
+
+* Unupgradable smart contracts
 
 
 ## Chapter 10: Tokens
