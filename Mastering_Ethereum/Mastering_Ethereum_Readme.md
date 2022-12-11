@@ -306,3 +306,15 @@ Opcodes are a set of instructions that the EVM employs in the background to carr
 Since every Ethereum node runs every contract execution, a hacker might try writing contracts with several computationally intensive activities to sluggish the network. Every opcode has its own base gas cost to shield against these attacks. In addition, a number of complex opcodes additionally impose a dynamic gas fee. For instance, the base cost of the opcode KECCAK256 (formerly SHA3) is 30 gas, and the dynamic cost is 6 gas per word (words are 256-bit items). Instructions that need a lot of computation cost more gas than simple, direct instructions. Additionally, each transaction begins with 21000 gas.
 
 ## Chapter 14: Consensus
+
+### proof of Work
+
+The PoW consensus algorithm uses the mining process to validate a transaction.
+
+* Mining: 
+
+The Proof of Work consensus algorithm involves solving a computationally challenging puzzle in order to create new blocks in the Ethereum  blockchain. The process is known as ‘mining’, and the nodes in the network that engages in mining are known as ‘miners’.
+
+### Proof of Stake
+
+As understandable from the name, nodes on a network stake an amount of cryptocurrency to become candidates to validate the new block and earn the fee from it. Then, an algorithm chooses from the pool of candidates the node which will validate the new block. This selection algorithm combines the quantity of stake (amount of cryptocurrency) with other factors (like coin-age based selection, randomization process) to make the selection fair to everyone on the network.
