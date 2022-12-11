@@ -66,7 +66,32 @@ The main function of MyEtherWallet is to function as a web-based wallet in any b
 
 ## Chapter 4: Cryptography
 
+Authenticating data and demonstrating knowledge of a secret without disclosing the secret are two of cryptography's primary goals (digital signature). Ethereum heavily utilises cryptography, and one way users can interact with it is through their Ethereum accounts.
+
+
+Private keys and digital signatures are used to prove who owns Externally Owned Accounts (EOAs). The Ethereum address of an EOA is derived from the private key, which is utilised practically everywhere in Ethereum during user interactions. In other words, the Ethereum address is the hash of the final 20 bytes of the public key that controls the account, with 0x appended in front.
+
+public key cryptography (also known as asymmetric encryption) is a cryptographic method that uses a key pair system. 
+The communication is signed using just one key, known as the private key. The public key, which is the additional key, authenticates the signature. We produce a digital signature whenever we sign any communication, be it an Ethereum transaction or any other kind of data. To accomplish this, the message is hashed, and the hash and private key are combined using the ECDSA algorithm to create a signature. This ensures that the hash value will change if the message is modified in any way.
+
 ## Chapter 5: Wallets
+
+Externally owned accounts (EOAs) and contract accounts are the only two sorts of ways to manage money on Ethereum technically. Both of these make it possible for Ethereum users to communicate with the Ethereum network as well as store ETH, ERC20s, and NFTs.
+
+The technical aspects of the dilemma are shown above, however below each of these answers are pathways to many strategies that may be found in wallets. 
+
+They fall into the following groups:
+
+* EOA software wallets
+
+* EOA hardware wallets
+
+* Single signature smart contract wallets
+
+* Multi signature smart contract wallets
+
+* EOA custodian wallets
+
 
 ## Chapter 6: Transactions
 
