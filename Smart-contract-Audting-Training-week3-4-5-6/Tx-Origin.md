@@ -1,10 +1,10 @@
 # Solidity Attack Vectors: #3 - Phishing With "tx.origin"
 
-Welcome to the third attack vector in my series on Solidity Attack Vectors. In my previous article, I discussed how contracts with zero code size can be used as an attack vector and mentioned the use of "tx.origin" in preventing such attacks. In this article, I will introduce "tx.origin" and how it can also be used maliciously. Let's get started!
+Welcome to the third article in my series on Solidity Attack Vectors. In my previous article, I discussed how contracts with zero code size can be used as an attack vector and mentioned the use of "tx.origin" in preventing such attacks. In this article, I will introduce "tx.origin" and how it can also be used maliciously. Let's get started!
 
 ## What is "tx.origin" and where does it come from?
 
-First, let's discuss the origin of "tx.origin" and what it is. In Solidity, there are different types of variables, including state variables (defined outside a function), local variables (defined inside a function), and global variables, which are native to Solidity and the blockchain (e.g., Ethereum, Polygon, Arbritrium). Some examples of global variables include "msg.sender", "msg.data", "block.timestamp", and "tx.origin".
+First, let's discuss the origin of "tx.origin" and what it is. In Solidity, there are different types of variables, including state variables (defined outside a function), local variables (defined inside a function), and global variables, which are native to Solidity and the blockchain (e.g., Ethereum, Polygon). Some examples of global variables include "msg.sender", "msg.data", "block.timestamp", and "tx.origin".
 
 Now that we know where "tx.origin" comes from, what does it mean or do? "tx.origin" is a global variable in Solidity that holds the address of the EOA (externally owned account, or simply the user's wallet address) from which a transaction originated. Every transaction in the Ethereum blockchain originates from an EOA, no matter where the transaction ends, but one transaction can lead to further transactions.
 
@@ -12,7 +12,7 @@ For instance, an EOA owned by "Jane" may send a transaction to contract "A", whi
 
 ## How "tx.origin" is used as an attack vector in solidity
 
-It is similar to "msg.sender", which holds only the address of the current transaction initiator. It is commonly used in smart contracts to determine who is calling the contract's functions or to perform actions on behalf of the transaction initiator
+It is similar to "msg.sender", which holds only the address of the current transaction initiator, which is commonly used in smart contracts to determine who is calling the contract's functions.
 
 "Tx.origin" can be useful in certain cases, but it can also be a vulnerability for attacks.
 
@@ -72,9 +72,11 @@ contract txOriginAttacker {
 }
 ```
 
-"John" has created a malicious contract that calls the "Withdraw" function of the vulnerable contract. he tricks "Jane" into sending some ETH to the malicious contract, which then triggers the "fallback" function of the malicious contract, which in turn calls its "Attack" function. Since the malicious contract's "Attack" function is calling the "Withdraw" function of the vulnerable contract, "msg.sender" in the vulnerable contract will be the address of the malicious contract. However, "tx.origin" in the vulnerable contract will still be the address of the user who initiated the first transaction (sending ETH), in this case "Jane", the owner of the vulnerable contract.
+"John" has created a malicious contract that calls the "Withdraw" function of the vulnerable contract. He tricks "Jane" into sending some ETH to the malicious contract, which then triggers the "fallback" function of the malicious contract. This function calls its "Attack" function. Since the malicious contract's "Attack" function is calling the "Withdraw" function of the vulnerable contract, "msg.sender" in the vulnerable contract will be the address of the malicious contract. However, "tx.origin" in the vulnerable contract will still be the address of the user who initiated the first transaction (sending ETH), in this case "Jane", the owner of the vulnerable contract.
 
 As a result, the "require" statement in the "Withdraw" function of the vulnerable contract will be satisfied, since "tx.origin" is equal to "owner". The malicious contract will be able to successfully call the "Withdraw" function and transfer all the ETH in the vulnerable contract to its own account, effectively stealing all the funds.
+
+## How to prevent this?
 
 This is just one example of how "tx.origin" can be used as an attack vector in Solidity. It is important to be aware of this vulnerability and use other methods of authentication, such as "msg.sender", when necessary. Always consider the potential security risks when using global variables in your contracts.
 
